@@ -201,10 +201,15 @@ var
                 try_load_pattern(pattern_parameter);
             }
         }
+        else if (parameters.rle) {
+            setup_pattern(decodeURIComponent(parameters.rle.replace(/\+/g, ' ')));
+        }
+/*
         else
         {
             load_random();
         }
+*/
 
         if(parameters["noui"] === "1")
         {
@@ -1623,7 +1628,15 @@ var
             drawer.draw_cell(coords.x, coords.y, mouse_set);
             last_mouse_x = coords.x;
             last_mouse_y = coords.y;
+
+            update_url();
         }
+    }
+
+    function update_url() {
+        const rle = formats.generate_rle(life, undefined, []);
+        history.replaceState(null, 'life', document.location.pathname +
+            '?rle=' + encodeURIComponent(rle).replace(/%20/g, '+'));
     }
 
     function $(id)
@@ -1638,6 +1651,7 @@ var
             return;
         }
 
+/*
         if(filename)
         {
             window.history.replaceState(null, "", "?pattern=" + filename);
@@ -1646,6 +1660,7 @@ var
         {
             window.history.replaceState(null, "", "/life/");
         }
+*/
     }
 
     /** @param {string=} title */
