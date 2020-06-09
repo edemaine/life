@@ -165,7 +165,7 @@ input[type=number], input[type=text] {
     text-align: center;
 }
 a, .link {
-    color: #ff0;
+    color: black;
     padding: 0px 1px;
     cursor: pointer;
     text-decoration: none;

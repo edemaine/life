@@ -19,7 +19,7 @@
 
 var
     /** @const */
-    DEFAULT_BORDER = 0.25,
+    DEFAULT_BORDER = 0.1,
     /** @const */
     DEFAULT_FPS = 20;
 
@@ -1145,8 +1145,8 @@ var
 
     function reset_settings()
     {
-        drawer.background_color = "#000000";
-        drawer.cell_color = "#cccccc";
+        drawer.background_color = "#ffffff";
+        drawer.cell_color = "#000000";
 
         drawer.border_width = DEFAULT_BORDER;
         drawer.cell_width = 2;
