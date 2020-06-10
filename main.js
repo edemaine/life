@@ -209,12 +209,11 @@ var
         else if (parameters.rle) {
             setup_pattern(decodeURIComponent(parameters.rle.replace(/\+/g, ' ')));
         }
-/*
         else
         {
-            load_random();
+            fit_pattern();
+            //load_random();
         }
-*/
 
         if(parameters["noui"] === "1")
         {

@@ -314,7 +314,7 @@ function LifeCanvasDrawer()
             x,
             y;
 
-        if(isFinite(width) && isFinite(height))
+        if(isFinite(width) && isFinite(height) && width && height)
         {
             relative_size = Math.min(
                 // 16, // maximum cell size
@@ -330,7 +330,11 @@ function LifeCanvasDrawer()
         else
         {
             // can happen if the pattern is empty or very large
-            zoom_to(16);
+            relative_size = Math.min(
+                canvas_width / 16, // relative width
+                canvas_height / 16 // relative height
+            );
+            zoom_to(100);
 
             x = canvas_width >> 1;
             y = canvas_height >> 1;
