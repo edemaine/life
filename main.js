@@ -454,7 +454,7 @@ var
 
             drawer.canvas.onmousedown = function(e)
             {
-                if(e.which === 3 || e.which === 2)
+                if(e.which === 3 || e.which === 2 || e.ctrlKey)
                 {
                     if(drawer.cell_width >= 1) // only at reasonable zoom levels
                     {
