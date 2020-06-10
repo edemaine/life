@@ -217,7 +217,11 @@ var
                 "statusbar", "about_button", "examples_menu",
                 "import_button", "settings_button", "zoomout_button",
                 "zoomin_button", "clear_button", "superstep_button",
-                "step_button", "rewind_button"
+                "step_button", "rewind_button",
+                "normalspeed_button", "slower_button", "faster_button",
+                "initial_pos_button",
+                "controls",
+                "randomize_button", "export_button", "run_button",
             ];
 
             for(var i = 0; i < elements.length; i++)
