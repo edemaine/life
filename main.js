@@ -61,6 +61,11 @@ var
         /** @type {number} */
         max_fps,
 
+        /** @type {number} */
+        loop_iterations,
+        /** @type {Function} */
+        loop_go,
+
         // has the pattern list been loaded
         /** @type {boolean} */
         patterns_loaded = false,
@@ -233,6 +238,18 @@ var
         if(parameters["fps"] && /^\d+$/.test(parameters["fps"]))
         {
             max_fps = +parameters["fps"];
+        }
+
+        if(parameters["loop"] && /^\d+$/.test(parameters["loop"]))
+        {
+            loop_iterations = +parameters["loop"];
+            loop_go = function ()
+            {
+                setTimeout(function () {
+                    run();
+                }, 3 * 1000 / max_fps);
+            }
+            loop_go();
         }
 
         function try_load_meta()
@@ -1349,6 +1366,16 @@ var
                 {
                     n = 1;
                     start = Date.now();
+                }
+
+                if(life.generation >= loop_iterations) {
+                    stop(function()
+                    {
+                        life.restore_rewind_state();
+                        loop_go();
+                        drawer.redraw(life.root);
+                        update_hud();
+                    });
                 }
             }
 
